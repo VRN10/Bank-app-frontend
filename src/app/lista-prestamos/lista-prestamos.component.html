@@ -1,0 +1,23 @@
+<h2>Lista de Mensajes</h2>
+<table class="table table-striped">
+    <thead class="table table-dark">
+        <tr>
+            <th>Nombre</th>
+            <th>Comision</th>
+            <th>Meses</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let prestamo of prestamos">
+            <td>{{prestamo.nombre}}</td>
+            <td>{{prestamo.comision}}</td>
+            <td>{{prestamo.meses}}</td>
+            <td>
+                <button (click)="actualizarPrestamo(prestamo.id)" class="btn btn-info">Editar</button>
+                <button (click)="eliminarPrestamo(prestamo.id)" class="btn btn-danger" style="margin-left: 10px">Eliminar</button>
+                <button (click)="verDetallesDelPrestamo(prestamo.id)" class="btn btn-primary" style="margin-left: 10px">Detalles</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

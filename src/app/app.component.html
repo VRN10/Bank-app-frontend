@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <ul class="navbar-nav">
+        <li>
+            <a routerLink="clientes" routerLinkActive="active" class="nav-link">Lista de Clientes</a>
+        </li>
+        <li>
+            <a routerLink="registrar-cliente" routerLinkActive="active" class="nav-link">Registrar Cliente</a>
+        </li>
+        <li>
+            <a routerLink="gestores" routerLinkActive="active" class="nav-link">Lista de Gestores</a>
+        </li>
+        <li>
+            <a routerLink="registrar-gestor" routerLinkActive="active" class="nav-link">Registrar Gestor</a>
+        </li>
+        <li>
+            <a routerLink="mensajes" routerLinkActive="active" class="nav-link">Lista de Mensajes</a>
+        </li>
+        <li>
+            <a routerLink="enviar-mensaje" routerLinkActive="active" class="nav-link">Enviar Mensaje</a>
+        </li>
+        <li>
+            <a routerLink="transferencias" routerLinkActive="active" class="nav-link">Lista de Transferencias</a>
+        </li>
+        <li>
+            <a routerLink="enviar-transferencia" routerLinkActive="active" class="nav-link">Enviar Transferencia</a>
+        </li>
+    </ul>
+</nav>
+<h1 class="text-center">{{title}}</h1>
+<div class="container">
+    <router-outlet></router-outlet>
+</div>

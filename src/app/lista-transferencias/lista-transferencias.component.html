@@ -1,0 +1,27 @@
+<h2>Lista de Transferencias</h2>
+<table class="table table-striped">
+    <thead class="table table-dark">
+        <tr>
+            <th>Id Ordenante</th>
+            <th>Id Beneficiario</th>
+            <th>Concepto</th>
+            <th>Importe</th>
+            <th>Fecha</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let transferencia of transferencias">
+            <td>{{transferencia.id_ordenante}}</td>
+            <td>{{transferencia.id_beneficiario}}</td>
+            <td>{{transferencia.importe}}</td>
+            <td>{{transferencia.concepto}}</td>
+            <td>{{transferencia.fecha}}</td>
+            <td>
+                <button (click)="actualizarTransferencia(transferencia.id)" class="btn btn-info">Editar</button>
+                <button (click)="eliminarTransferencia(transferencia.id)" class="btn btn-danger" style="margin-left: 10px">Eliminar</button>
+                <button (click)="verDetallesDeLaTransferencia(transferencia.id)" class="btn btn-primary" style="margin-left: 10px">Detalles</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

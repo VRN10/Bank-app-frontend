@@ -1,0 +1,47 @@
+<div class="col-md-6 offset-md-3">
+    <br>
+    <h3 class="text-center">Enviar Mensaje</h3>
+    <br>
+    <form (ngSubmit)="onSubmit()" #mensajeForm="ngForm">
+        <div class="form-group">
+            <label>Id de Origen: </label>
+            <input type="number" class="form-control" id="mensaje" [(ngModel)]="mensaje.id_origen" name="id_origen" required
+             placeholder="Indique el id del gestor que desea enviar el mensaje" #id_origen="ngModel">
+            <div class="alert alert-danger" *ngIf="id_origen.invalid && (id_origen.dirty || id_origen.touched)">
+                <div *ngIf="id_origen.errors">
+                    Indique el id del gestor que envia el mensaje
+                </div>
+                <div *ngIf="id_origen.errors">
+                    Consulte la lista de gestores para saber los id
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="form-group">
+            <label>Id de Destino: </label>
+            <input type="number" class="form-control" id="mensaje" [(ngModel)]="mensaje.id_destino" name="id_destino" required
+             placeholder="Indique el id de destino del gestor que lo recibirá" #id_destino="ngModel">
+            <div class="alert alert-danger" *ngIf="id_destino.invalid && (id_destino.dirty || id_destino.touched)">
+                <div *ngIf="id_destino.errors">
+                    Indique el id del gestor que recibe el mensaje
+                </div>
+                <div *ngIf="id_destino.errors">
+                    Consulte la lista de gestores para saber los id
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="form-group">
+            <label>Texto del Mensaje: </label>
+            <input type="text" class="form-control" id="mensaje" [(ngModel)]="mensaje.texto" name="usuario" required
+                minlength="4" maxlength="300" placeholder="Escriba el mensaje" #texto="ngModel">
+            <div class="alert alert-danger" *ngIf="texto.invalid && (texto.dirty || texto.touched)">
+                <div *ngIf="texto.errors">
+                    Escriba el mensaje con un mínimo de 4 cáracteres hasta un máximo de 300
+                </div>
+            </div>
+        </div>
+        <br>
+        <button class="btn btn-success">Enviar</button>
+    </form>
+</div>

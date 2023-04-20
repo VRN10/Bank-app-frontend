@@ -1,0 +1,79 @@
+<div class="col-md-6 offset-md-3">
+    <br>
+    <h3 class="text-center">Registro de Cliente</h3>
+    <br>
+    <form (ngSubmit)="onSubmit()" #clienteForm="ngForm">
+        <div class="form-group">
+            <label>Usuario: </label>
+            <input type="text" class="form-control" id="usuario" [(ngModel)]="cliente.usuario" name="usuario" required
+                minlength="4" maxlength="30" placeholder="Escriba su nombre completo" #usuario="ngModel">
+            <div class="alert alert-danger" *ngIf="usuario.invalid && (usuario.dirty || usuario.touched)">
+                <div *ngIf="usuario.errors">
+                    Escriba su nombre completo por favor
+                </div>
+                <div *ngIf="usuario.errors">
+                    Debe contener 4 caracteres mínimo
+                </div>
+                <div *ngIf="usuario.errors">
+                    Debe contener 30 caracteres máximo
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="form-group">
+            <label>Password: </label>
+            <input type="password" class="form-control" id="password" [(ngModel)]="cliente.password" name="password"
+                required minlength="4" maxlength="25" placeholder="Escriba su contraseña" #password="ngModel">
+            <div class="alert alert-danger" *ngIf="password.invalid && (password.dirty || password.touched)">
+                <div *ngIf="password.errors">
+                    Escriba su contraseña por favor
+                </div>
+                <div *ngIf="password.errors">
+                    Debe contener 4 caracteres mínimo
+                </div>
+                <div *ngIf="password.errors">
+                    Debe contener 25 caracteres máximo
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="form-group">
+            <label>Correo: </label>
+            <input type="email" class="form-control" id="correo" [(ngModel)]="cliente.correo" name="correo"
+                pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" required
+                placeholder="Escriba el correo" #correo="ngModel">
+            <div class="alert alert-danger" *ngIf="correo.invalid && (correo.dirty || correo.touched)">
+                <div *ngIf="correo.errors">
+                    Escriba el correo por favor
+                </div>
+                <div *ngIf="correo.errors">
+                    Escriba el correo en el siguiente formato: user100@email.com
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="form-group">
+            <label>¿De cuánto saldo dispone el cliente? </label>
+            <input type="text" class="form-control" id="saldo" [(ngModel)]="cliente.saldo" name="saldo" 
+            pattern= "[0-9]+\.?[0-9]{0,2}" required placeholder="Escriba el saldo del cliente" #saldo="ngModel">
+            <div class="alert alert-danger" *ngIf="saldo.invalid && (saldo.dirty || saldo.touched)">
+                <div *ngIf="saldo.errors">
+                    Escriba el saldo en el siguiente formato: 33434.44
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="form-group">
+            <label>¿Cuál es el id de su gestor? </label>
+            <input type="number" class="form-control" id="id_gestor" [(ngModel)]="cliente.id_gestor" name="id_gestor" 
+             required placeholder="Indique el id de su gestor" #id_gestor="ngModel">
+            <div class="alert alert-danger" *ngIf="id_gestor.invalid && (id_gestor.dirty || id_gestor.touched)">
+                <div *ngIf="id_gestor.errors">
+                    Consulte la lista de gestores y escriba el id de uno de ellos
+                </div>
+            </div>
+        </div>
+        <br>
+        <button class="btn btn-success">Guardar</button>
+    </form>
+</div>

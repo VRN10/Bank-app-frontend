@@ -1,0 +1,23 @@
+<h2>Lista de Gestores</h2>
+<table class="table table-striped">
+    <thead class="table table-dark">
+        <tr>
+            <th>Usuario</th>
+            <th>Password</th>
+            <th>Correo</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let gestor of gestores">
+            <td>{{gestor.usuario}}</td>
+            <td>{{gestor.password}}</td>
+            <td>{{gestor.correo}}</td>
+            <td>
+                <button (click)="actualizarGestor(gestor.id)" class="btn btn-info">Editar</button>
+                <button (click)="eliminarGestor(gestor.id)" class="btn btn-danger" style="margin-left: 7.5px">Eliminar</button>
+                <button (click)="verDetallesDelGestor(gestor.id)" class="btn btn-primary" style="margin-left: 7.5px">Detalles</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
